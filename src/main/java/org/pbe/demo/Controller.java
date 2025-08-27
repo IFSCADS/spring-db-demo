@@ -13,11 +13,16 @@ public class Controller {
 
     @GetMapping("/busca/{nome}")
     List<Usuario> lista(@PathVariable String nome) {
-        return serv.bucaTodosComNome(nome);
+        return serv.buscaTodosComNome(nome);
+    }
+
+    @GetMapping("/seleciona/{nome}")
+    Usuario seleciona(@PathVariable String nome) {
+        return serv.buscaPorNome(nome);
     }
 
     @PostMapping("/adiciona")
-    long lista(@RequestParam String nome, @RequestParam String sobrenome) {
+    long adiciona(@RequestParam String nome, @RequestParam String sobrenome) {
         return serv.cria(nome, sobrenome);
     }
 }

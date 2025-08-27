@@ -21,15 +21,11 @@ public class ServicoUsuario {
         return usuario.getId();
     }
 
-    public Usuario bucaPorNome(String nome) {
-        Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        Example<Usuario> exemplo = Example.of(usuario);
-
-        return usuarioRepository.findOne(exemplo).orElse(null);
+    public Usuario buscaPorNome(String nome) {
+        return usuarioRepository.findFirstByNome(nome);
     }
 
-    public List<Usuario> bucaTodosComNome(String nome) {
+    public List<Usuario> buscaTodosComNome(String nome) {
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         Example<Usuario> exemplo = Example.of(usuario);
